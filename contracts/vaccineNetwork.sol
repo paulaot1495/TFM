@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
 
+import './roles/LaboratoryRole.sol';
+import './roles/CarrierRole.sol';
 /**
  * @title Vacine Network Model
  */
-contract VaccineNetwork {
+contract VaccineNetwork is LaboratoryRole, CarrierRole{
 
     uint transport_phases;
 

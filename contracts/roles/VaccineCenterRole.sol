@@ -1,10 +1,11 @@
-pragma solidity >=0.4.24;
+pragma solidity >=0.8.0 <0.9.0;
 
 //OpenZeppelin library 'AccessControl' import
 import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 //Contract 'VaccineCenterRole' to manage vaccine center role - to check, to add, to remove
-contract VaccineCenterRole is AccessControl{
+contract VaccineCenterRole is AccessControl, Ownable{
 
   bytes32 public constant VC_ROLE = keccak256("VC_ROLE");
 
@@ -20,12 +21,12 @@ contract VaccineCenterRole is AccessControl{
   }
 
   //Add VaccineCenter role to an account. Only admin account can use it.
-  function addVaccineCenter(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
+  function addVaccineCenter(address account) public onlyOwner {
    _addVaccineCenter(account);
   }
 
   //Remove VaccineCenter role of an account. Only admin account can use it. 
-  function removeVaccineCenter(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
+  function removeVaccineCenter(address account) public onlyOwner {
     _removeVaccineCenter(account);
   }
 

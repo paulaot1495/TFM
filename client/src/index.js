@@ -3,20 +3,14 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { DrizzleProvider } from "./drizzle/drizzleContext";
 import { Provider as ReduxProvider } from "react-redux";
-import options from "./drizzle/drizzleOptions";
+import drizzleOptions from "./drizzle/drizzleOptions";
 import { Drizzle, generateStore } from "@drizzle/store";
 import logger from "redux-logger";
 import LoadingContainer from "./components/LoadingContainer";
 
-import VaccineNetwork from "./contracts/VaccineNetwork.json";
+import store from './middleware'
 
-const store = generateStore({
-  drizzleOptions: options,
-  appMiddlewares: [logger],
-  contratcs: [VaccineNetwork],
-});
-
-const drizzle = new Drizzle(options, store);
+const drizzle = new Drizzle(drizzleOptions, store);
 
 ReactDOM.render(
   <React.StrictMode>

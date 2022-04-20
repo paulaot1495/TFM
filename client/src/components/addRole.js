@@ -34,7 +34,6 @@ function AddRole(props) {
     // get the transaction hash using our saved `stackId`
     const txHash = transactionStack[stackId];
     console.log(txHash);
-    console.log('AAAAAAAAAAAAA');
     // if transaction hash does not exist, don't display anything
     if (!txHash) return null;
   

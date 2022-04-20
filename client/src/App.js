@@ -1,38 +1,54 @@
 import React, { useEffect, useState } from "react";
 import { useDrizzleContext } from "./drizzle/drizzleContext";
-import AddRole from "./addRole";
+import AddRole from "./components/addRole";
+import MetamaskComponent from "./components/metamaskComponent";
+import RolComponent from "./components/rolComponent";
+import { newContextComponents } from "@drizzle/react-components";
+import './App.css';
+
 
 import { connect } from "react-redux";
 
-function App({ dataCall, account }) {
+function App({ account, web3}) {
+
+  const {AccountData} = newContextComponents;
   const drizzle = useDrizzleContext();
-  const [data, setData] = useState("");
+  const drizzleState = drizzle.store.getState();
+
+  const [accountValue, setAccountValue] = useState(account);
 
   useEffect(() => {
+      window.ethereum.on('accountsChanged', function (accounts) {
+
+        setAccountValue(accounts[0]);
+      });
   }, []);
 
   if (true) {
     return (
       <div>
-        <h1>Vamos a crear la red de vacunas</h1>
-        <h2>Cuenta metamask {account}</h2>
+        <MetamaskComponent account={accountValue}></MetamaskComponent>
+        <RolComponent rol="Administrador"></RolComponent>
         <AddRole 
           account={account}
           method={drizzle.contracts.VaccineNetwork.methods.addLaboratory}
           title="Añade un responsable del Laboratorio"
-          owner={drizzle.contracts.VaccineNetwork.options.from}>
+          owner={drizzle.contracts.VaccineNetwork.options.from}
+          drizzleState={drizzleState}>
         </AddRole>
         <AddRole 
           account={account}
           method={drizzle.contracts.VaccineNetwork.methods.addCarrier}
           title="Añade un transportista"
-          owner={drizzle.contracts.VaccineNetwork.options.from}>
+          owner={drizzle.contracts.VaccineNetwork.options.from}
+          drizzleState={drizzleState}>
         </AddRole>
         <AddRole 
           account={account}
           method={drizzle.contracts.VaccineNetwork.methods.addVaccineCenter}
           title="Añade un responsable del Centro de Salud"
-          owner={drizzle.contracts.VaccineNetwork.options.from}>
+          owner={drizzle.contracts.VaccineNetwork.options.from}
+          drizzleState={drizzleState}>
         </AddRole>
       </div>
     );
@@ -45,7 +61,6 @@ function App({ dataCall, account }) {
 
 const mapStateToProps = (state) => {
   return {
-    carrierRole: state.contracts.VaccineNetwork.CARRIER_ROLE,
     account: state.accounts[0],
     owner: state.contracts.VaccineNetwork.owner
   };

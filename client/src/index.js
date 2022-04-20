@@ -8,9 +8,12 @@ import { Drizzle, generateStore } from "@drizzle/store";
 import logger from "redux-logger";
 import LoadingContainer from "./components/LoadingContainer";
 
+import VaccineNetwork from "./contracts/VaccineNetwork.json";
+
 const store = generateStore({
   drizzleOptions: options,
   appMiddlewares: [logger],
+  contratcs: [VaccineNetwork],
 });
 
 const drizzle = new Drizzle(options, store);

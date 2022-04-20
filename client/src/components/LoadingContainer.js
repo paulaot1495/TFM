@@ -43,7 +43,7 @@ const LoadingContainer = ({ web3, accounts, initialized, children }) => {
     }
   }
 
-  return "Loading...";
+  return (<p id="loading">"Conectando con metamask...🦊"</p>);
 };
 
 const mapStateToProps = (state) => {

@@ -92,11 +92,10 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
 
     /*
     * Elimina el rol de transportista de la cuenta pasada como parametro. 
-    * Solo puede hacerlo el rol de laboratorio si el lote sigue en el laboratorio. 
+    * Solo puede borrarse si el lote sigue en el laboratorio o el producto ha completado la cadena. 
     */    
     function removeCarrier(address account) public {
-        require(roles[msg.sender] == Rol.Laboratory, "No tienes permisos para realizar esta accion.");
-        require(places[vaccine_id] == Place.Laboratory, "El lote ya esta en transito.");
+        require(states[vaccine_id] != State.Transit, "El lote esta en transito.");
         require(users[Rol.Carrier] == account, "Esta cuenta no tiene rol transportista");
 
         carrier = false;
@@ -123,11 +122,10 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
 
     /*
     * Elimina el rol de responsable de centro de vacunación de la cuenta pasada como parametro. 
-    * Solo puede hacerlo el rol de laboratorio si el lote sigue en el laboratorio. 
+    * Solo puede hacerlo si el lote sigue en el laboratorio. o el producto ha completado la cadena.
     */
     function removeVaccineCenter(address account) public {
-        require(roles[msg.sender] == Rol.Laboratory, "No tienes permisos para realizar esta accion.");
-        require(places[vaccine_id] == Place.Laboratory, "El lote ya esta en transito.");
+        require(states[vaccine_id] != State.Transit, "El lote esta en transito.");
         require(users[Rol.VaccineCenter] == account, "Esta cuenta no tiene rol de centro");
         center = false;
 
@@ -187,8 +185,9 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
     * Se elimina la red asociada al lote de vacunas.
     */
     function setVaccineKo () public {
-        require(roles[msg.sender] == Rol.Carrier || roles[msg.sender] == Rol.VaccineCenter , "No tienes permisos para realizar esta accion.");
+        require(roles[msg.sender] == Rol.Carrier || roles[msg.sender] == Rol.VaccineCenter, "No tienes permisos para realizar esta accion.");
         require(states[vaccine_id] == State.Transit, "Ha habido un error");
+        require(places[vaccine_id] != Place.Laboratory, "Ha habido un error");
 
         states[vaccine_id] = State.Ko;
 
@@ -231,5 +230,9 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
 
     function getCarrierPoints(address _address) public view returns (uint, uint) {
         return (carriers[_address].points, carriers[_address].travels);
+    }
+
+    function getVaccineId() public view returns (uint) {
+        return vaccine_id;
     }
 }

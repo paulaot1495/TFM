@@ -4,10 +4,74 @@ pragma solidity >=0.6.0 <0.9.0;
 import './roles/LaboratoryRole.sol';
 import './roles/CarrierRole.sol';
 import './roles/VaccineCenterRole.sol';
-
 /**
  * @title Vacine Network Model
  */
-contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole{
+contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
     uint transport_phases;
+    address empty = 0x0000000000000000000000000000000000000000;
+    bool laboratory = false;
+    bool center = false;
+    bool carrier = false;
+    enum Rol {None, Carrier, Laboratory, VaccineCenter, Admin}
+
+    mapping(Rol => address) public users;
+     mapping(address => Rol) public roles;
+
+
+    //Add Laboratory role to an account. Only admin account can use it.
+    function addLaboratory(address account) public {
+        require(!laboratory, "Ya hay un laboratorio creado, eliminalo antes");
+        users[Rol.Laboratory] = account;
+        roles[account] = Rol.Laboratory;
+        laboratory = true;
+        _addLaboratory(account);
+    }
+
+      //Remove laboratory role of an account. Only admin account can use it. 
+    function removeLaboratory(address account) public {
+        require(users[Rol.Laboratory] != empty, "Esta cuenta no tiene rol de laboratorio");
+        roles[account] = Rol.None;
+        laboratory = false;
+        _removeLaboratory(account);
+    }
+
+    //Add VaccineCenter role to an account. Only admin account can use it.
+    function addVaccineCenter(address account) public {
+        require(!center, "Ya hay un responsable del centro de vacunacion creado");
+        users[Rol.VaccineCenter] = account;
+        roles[account] = Rol.VaccineCenter;
+        laboratory = true;
+        _addLaboratory(account);
+    }
+
+    //Remove VaccineCenter role of an account. Only admin account can use it. 
+    function removeVaccineCenter(address account) public {
+        require(users[Rol.VaccineCenter] != empty, "Esta cuenta no tiene rol de centro");
+        roles[account] = Rol.None;
+        center = false;
+        _removeVaccineCenter(account);
+    }
+
+    //Add Carrier role to an account. Only admin account can use it.
+    function addCarrier(address account) public {
+        require(!carrier, "Ya hay un transportista creado, eliminalo antes");
+        users[Rol.Carrier] = account;
+        roles[account] = Rol.Carrier;
+        laboratory = true;
+        _addCarrier(account);
+    }
+
+    //Remove Carrier role of an account. Only admin account can use it. 
+    function removeCarrier(address account) public {
+        require(users[Rol.Carrier] != empty, "Esta cuenta no tiene rol transportista");
+        roles[account] = Rol.None;
+        carrier = false;
+        _removeCarrier(account);
+    }
+
+    function getAccountRole (address _address) public view returns (Rol) {
+        return roles[_address];
+    }
+
 }

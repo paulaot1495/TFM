@@ -20,16 +20,6 @@ contract CarrierRole is AccessControl, Ownable{
     return hasRole(CARRIER_ROLE, account);
   }
 
-  //Add Carrier role to an account. Only admin account can use it.
-  function addCarrier(address account) public onlyOwner {
-   _addCarrier(account);
-  }
-
-  //Remove Carrier role of an account. Only admin account can use it. 
-  function removeCarrier(address account) public onlyOwner {
-    _removeCarrier(account);
-  }
-
   function _addCarrier(address account) internal {
     _grantRole(CARRIER_ROLE, account);
     emit carrierAdded(account);

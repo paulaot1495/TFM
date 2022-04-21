@@ -20,16 +20,6 @@ contract VaccineCenterRole is AccessControl, Ownable{
     return hasRole(VC_ROLE, account);
   }
 
-  //Add VaccineCenter role to an account. Only admin account can use it.
-  function addVaccineCenter(address account) public onlyOwner {
-   _addVaccineCenter(account);
-  }
-
-  //Remove VaccineCenter role of an account. Only admin account can use it. 
-  function removeVaccineCenter(address account) public onlyOwner {
-    _removeVaccineCenter(account);
-  }
-
   function _addVaccineCenter(address account) internal {
     _grantRole(VC_ROLE, account);
     emit vaccineCenterAdded(account);

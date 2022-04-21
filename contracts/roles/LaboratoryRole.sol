@@ -20,16 +20,6 @@ contract LaboratoryRole is AccessControl, Ownable{
     return hasRole(LABORATORY_ROLE, account);
   }
 
-  //Add Laboratory role to an account. Only admin account can use it.
-  function addLaboratory(address account) public onlyOwner {
-   _addLaboratory(account);
-  }
-
-  //Remove laboratory role of an account. Only admin account can use it. 
-  function removeLaboratory(address account) public onlyOwner {
-    _removeLaboratory(account);
-  }
-
   function _addLaboratory(address account) internal {
     _grantRole(LABORATORY_ROLE, account);
     emit laboratoryAdded(account);

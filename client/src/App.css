@@ -17,6 +17,12 @@ body {
     margin: 1rem;
 }
 
+h1 {
+    margin: 0.5rem;
+    font-size: 19px;
+    font-weight: 600;
+}
+
 h2 {
     margin: 0.5rem;
     font-size: 13px;
@@ -33,6 +39,15 @@ h3 {
     background-color: #afc4d7;
     font-size: 13px;
     border: solid 2px #257492;
+    border-radius: 10px;
+    text-align: center;
+    margin: 1rem;
+}
+
+#vaccine-id {
+    background-color: #b6dda3;
+    font-size: 13px;
+    border: solid 2px #637b47;
     border-radius: 10px;
     text-align: center;
     margin: 1rem;
@@ -59,6 +74,14 @@ h3 {
     text-align: center;
 }
 
+.value-input {
+    margin:1rem;
+    border-radius: 10px;
+    width: 70px;
+    color: #257492;
+    text-align: center;
+}
+
 .add-user-button {
     margin: 1rem;
     height: 3rem;
@@ -69,7 +92,7 @@ h3 {
     color: #066a91;
 }
 
-.address-view {
+.generic-view {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -78,16 +101,84 @@ h3 {
     margin: 1rem;
 }
 
-.address-view-button {
+.generic-view-button {
     margin: 1rem;
     height: 5rem;
-    width: 7rem;
+    min-width: 9rem;
     background-color: #e3db8f;
     border: solid 2px #257492;
     border-radius: 10px;
     color: #257492;
 }
 
-.address-view-text {
+.generic-view-text {
     font-weight: 700;
+}
+
+.register-view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #932424;
+    border-radius: 10px;
+    margin: 1rem;
+}
+
+.register-view-button {
+    margin: 1rem;
+    height: 5rem;
+    min-width: 7rem;
+    background-color: #e9a2a2;
+    border: solid 2px #932424;
+    border-radius: 10px;
+    color: #932424;
+}
+
+.status-ko-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status-ko-container input {
+    margin: 1rem;
+    height: 5rem;
+    min-width: 7rem;
+    background-color: #e9a2a2;
+    border: solid 2px #932424;
+    border-radius: 10px;
+    color: #932424;
+}
+
+.status-ok-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status-ok-container input {
+    margin: 1rem;
+    height: 5rem;
+    min-width: 7rem;
+    background-color: #b6dda3;
+    border: solid 2px #637b47;
+    border-radius: 10px;
+    color: #637b47;
+}
+
+.place-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.place-container input {
+    margin: 1rem;
+    height: 5rem;
+    min-width: 7rem;
+    background-color: #afc4d7;
+    border: solid 2px #126586;
+    border-radius: 10px;
+    color: #126586;
 }

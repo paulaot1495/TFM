@@ -26,11 +26,11 @@ function AddressToRole(props) {
 
   return (
     <div>
-      <form className="address-view" onSubmit={onSubmit}>
+      <form className="generic-view" onSubmit={onSubmit}>
         <label className="add-user-label">      
         </label>
-        <input className="address-view-button" type="submit" value={buttonLabel} />
-        <div className='address-view-text'>{getAddress()}</div>
+        <input className="generic-view-button" type="submit" value={buttonLabel} />
+        <div className='generic-view-text'>{getAddress()}</div>
       </form>
     </div>
   );

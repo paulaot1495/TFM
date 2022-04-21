@@ -8,6 +8,7 @@ import { Drizzle, generateStore } from "@drizzle/store";
 import logger from "redux-logger";
 import LoadingContainer from "./components/LoadingContainer";
 
+
 import store from './middleware'
 
 const drizzle = new Drizzle(drizzleOptions, store);

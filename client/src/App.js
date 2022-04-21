@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDrizzleContext } from "./drizzle/drizzleContext";
-import ManageRole from "./components/manageRole";
-import MetamaskComponent from "./components/metamaskComponent";
-import RolComponent from "./components/rolComponent";
+import AdminContainer from "./components/AdminContainer";
 import { newContextComponents } from "@drizzle/react-components";
 import './App.css';
 import VaccineNetwork from "./contracts/VaccineNetwork.json";
@@ -59,81 +57,42 @@ function App({ account, web3, transactionStack, transactions, contract}) {
     }
   }
 
-  if (true) {
+  if (rol === 'Usuario genérico') {
     return (
       <div>
         <div>{getTxStatus()}</div>
         <div>{getRole()}</div>
         <ToastContainer />
-        <MetamaskComponent account={accountValue}></MetamaskComponent>
-        <RolComponent rol={rol}></RolComponent>
-        <ManageRole 
-          stackId={stackId}
-          buttonLabel='Añadir'
-          setStackId={setStackId}
-          account={accountValue}
-          method={drizzle.contracts.VaccineNetwork.methods.addLaboratory}
-          title="Añade un responsable del Laboratorio"
-          role="lab"
-          owner={drizzle.contracts.VaccineNetwork.options.from}
-          drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
-          stackId={stackId}
-          buttonLabel='Eliminar'
-          setStackId={setStackId}
-          account={accountValue}
-          method={drizzle.contracts.VaccineNetwork.methods.removeLaboratory}
-          title="Elimina al responsable del Laboratorio"
-          owner={drizzle.contracts.VaccineNetwork.options.from}
-          drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole 
-          stackId={stackId}
-          buttonLabel='Añadir'
-          setStackId={setStackId}
-          account={accountValue}
-          method={drizzle.contracts.VaccineNetwork.methods.addCarrier}
-          title="Añade un transportista"
-          owner={drizzle.contracts.VaccineNetwork.options.from}
-          drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
-          stackId={stackId}
-          buttonLabel='Eliminar'
-          setStackId={setStackId}
-          account={accountValue}
-          method={drizzle.contracts.VaccineNetwork.methods.removeCarrier}
-          title="Elimina al transportista"
-          owner={drizzle.contracts.VaccineNetwork.options.from}
-          drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
-          stackId={stackId}
-          buttonLabel='Añadir'
-          setStackId={setStackId}
-          account={accountValue}
-          method={drizzle.contracts.VaccineNetwork.methods.addVaccineCenter}
-          title="Añade un responsable del Centro de Salud"
-          owner={drizzle.contracts.VaccineNetwork.options.from}
-          drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
-          stackId={stackId}
-          buttonLabel='Eliminar'
-          setStackId={setStackId}
-          account={accountValue}
-          method={drizzle.contracts.VaccineNetwork.methods.removeVaccineCenter}
-          title="Elimina al responsable del Centro de Salud"
-          owner={drizzle.contracts.VaccineNetwork.options.from}
-          drizzleState={drizzleState}>
-        </ManageRole>
+        <AdminContainer 
+        rol = {rol}
+        stackId = {stackId}
+        setStackId={setStackId}
+        accountValue={accountValue}
+        drizzle = {drizzle}
+        drizzleState = {drizzleState}
+        />
       </div>
     );
-  } else {
+  } else if(rol === 'Laboratorio' ) {
     return (
-      <p> Es falso </p>
+      <p> Solo puedes ver funciones de laboratorio </p>
     )
+  } else {
+    return(
+        <div>
+          <div>{getTxStatus()}</div>
+          <div>{getRole()}</div>
+          <ToastContainer />
+          <AdminContainer 
+          rol = {rol}
+          stackId = {stackId}
+          setStackId={setStackId}
+          accountValue={accountValue}
+          drizzle = {drizzle}
+          drizzleState = {drizzleState}
+          />
+        </div>
+      );
   }
 }
 

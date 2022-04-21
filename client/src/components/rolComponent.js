@@ -17,7 +17,7 @@ function RolComponent(props) {
   } else {
     return(
       <div id="rol">
-      <h2> Algo no ha ido bien.. por favor escoge de nuevo tu cuenta con Metamask 🦊</h2>
+      <h2> No hemos podido identificar tu rol.. por favor escoge de nuevo tu cuenta con Metamask 🦊</h2>
     </div>
     )
   }

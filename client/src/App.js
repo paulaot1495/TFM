@@ -32,6 +32,10 @@ function App({ account, web3, transactionStack, transactions, contract}) {
   let vaccineId;
 
   useEffect(() => {
+    const a = drizzle.contracts.VaccineNetwork.methods.getAccountRole.cacheCall(account);
+    setRolKey(a);
+    const b = drizzle.contracts.VaccineNetwork.methods.getVaccineId.cacheCall();
+    setVaccineId(b);
       window.ethereum.on('accountsChanged', function (accounts) {
         setAccountValue(accounts[0]);
         const a = drizzle.contracts.VaccineNetwork.methods.getAccountRole.cacheCall(accounts[0]);
@@ -77,7 +81,6 @@ function App({ account, web3, transactionStack, transactions, contract}) {
     return (
       <div>
         <div>{getTxStatus()}</div>
-        <div>{getRole()}</div>
         <ToastContainer />
         <NoRoleContainer 
           rol = {rol_name}

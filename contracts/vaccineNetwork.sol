@@ -95,7 +95,7 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
     * Solo puede borrarse si el lote sigue en el laboratorio o el producto ha completado la cadena. 
     */    
     function removeCarrier(address account) public {
-        require(states[vaccine_id] != State.Transit, "El lote esta en transito.");
+        require(places[vaccine_id] != Place.Laboratory, "El lote esta en transito.");
         require(users[Rol.Carrier] == account, "Esta cuenta no tiene rol transportista");
 
         carrier = false;
@@ -125,7 +125,7 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
     * Solo puede hacerlo si el lote sigue en el laboratorio. o el producto ha completado la cadena.
     */
     function removeVaccineCenter(address account) public {
-        require(states[vaccine_id] != State.Transit, "El lote esta en transito.");
+        require(places[vaccine_id] != Place.Laboratory, "El lote esta en transito.");
         require(users[Rol.VaccineCenter] == account, "Esta cuenta no tiene rol de centro");
         center = false;
 

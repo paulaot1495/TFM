@@ -8,7 +8,7 @@ import StatusComponent from "./StatusComponent";
 
 function CarrierContainer(props) {
   const [data, setData] = useState("");
-  const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId} = props;
+  const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, transactionStack, transactions} = props;
 
   useEffect(() => {
   }, []);
@@ -28,6 +28,8 @@ function CarrierContainer(props) {
             drizzleState = {drizzleState}
             rol = {rol}
             rolId = {rolId}
+            transactions = {transactions}
+            transactionStack = {transactionStack}
             />
             <StatusComponent
             stackId = {stackId}

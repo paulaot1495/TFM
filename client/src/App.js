@@ -10,9 +10,6 @@ import CVContainer from "./components/CVContainer";
 import { newContextComponents } from "@drizzle/react-components";
 import './App.css';
 import VaccineNetwork from "./contracts/VaccineNetwork.json";
-import 'react-toastify/dist/ReactToastify.css'
-import { ToastContainer } from 'react-toastify'
-import { toast } from 'react-toastify';
 
 
 
@@ -45,20 +42,6 @@ function App({ account, web3, transactionStack, transactions, contract}) {
       });
     }, []);
 
-  const getTxStatus = () => {
-    if (transactionStack[stackId]) {
-      const txHash = transactionStack[stackId];
-      if(transactions[txHash] && transactions[txHash].status) {
-        if(transactions[txHash].status === 'success' && !toast.isActive('success')){
-          let text = transactions[txHash].receipt.transactionHash
-          toast.success('La transacción ha ido bien', { toastId: 'success', position: toast.POSITION.TOP_RIGHT });
-        } else if (transactions[txHash].status === 'error' && !toast.isActive('error')){
-          const error = transactions[txHash].error.message.substring(142, 181) || 'Ha ocurrido un error.'
-          toast.error(error, { toastId: 'error', position: toast.POSITION.TOP_RIGHT });
-        };
-      }
-    } 
-  }
   const getRole = () => {
     if(contract && contract.getVaccineId[vaccineIdKey]) {
       vaccineId = contract.getVaccineId[vaccineIdKey].value;
@@ -80,8 +63,7 @@ function App({ account, web3, transactionStack, transactions, contract}) {
   if ( rol_id === '0') {
     return (
       <div>
-        <div>{getTxStatus()}</div>
-        <ToastContainer />
+
         <NoRoleContainer 
           rol = {rol_name}
           stackId = {stackId}
@@ -89,14 +71,13 @@ function App({ account, web3, transactionStack, transactions, contract}) {
           accountValue={accountValue}
           drizzle = {drizzle}
           drizzleState = {drizzleState}
-      />
+          transactions = {transactions}
+          transactionStack = {transactionStack}/>
       </div>
     );
   } else if(rol_id === '1' ) {
     return (
       <div>
-      <div>{getTxStatus()}</div>
-      <ToastContainer />
       <AdminContainer 
       rol = {rol_name}
       rolId = {rol}
@@ -106,14 +87,13 @@ function App({ account, web3, transactionStack, transactions, contract}) {
       drizzle = {drizzle}
       drizzleState = {drizzleState}
       vaccineId = {vaccineId}
-      />
+      transactions = {transactions}
+      transactionStack = {transactionStack}/>
     </div>
     )
   } else if (rol_id === '2') {
     return(
       <div>
-      <div>{getTxStatus()}</div>
-      <ToastContainer />
       <CarrierContainer 
       stackId = {stackId}
       setStackId={setStackId}
@@ -129,8 +109,6 @@ function App({ account, web3, transactionStack, transactions, contract}) {
   } else if (rol_id === '3') {
     return(
       <div>
-      <div>{getTxStatus()}</div>
-      <ToastContainer />
       <CVContainer 
       stackId = {stackId}
       setStackId={setStackId}
@@ -140,14 +118,14 @@ function App({ account, web3, transactionStack, transactions, contract}) {
       rol = {rol_name}
       rolId = {rol}
       vaccineId = {vaccineId}
+      transactions = {transactions}
+      transactionStack = {transactionStack}
       />
       </div>
     )
   } else {
     return(
       <div>
-      <div>{getTxStatus()}</div>
-      <ToastContainer />
       <GenericContainer 
       stackId = {stackId}
       setStackId={setStackId}
@@ -157,6 +135,8 @@ function App({ account, web3, transactionStack, transactions, contract}) {
       rol = {rol_name}
       rolId = {rol}
       vaccineId = {vaccineId}
+      transactions = {transactions}
+      transactionStack = {transactionStack}
       />
       <InfoComponent/>
       </div>

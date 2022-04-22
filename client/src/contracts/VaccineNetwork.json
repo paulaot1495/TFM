@@ -22518,14 +22518,187 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0xbd79b86ffe0ab8e8776151514217cd7cacd52c909f66475c3af44e129f0b00ff": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "previousAdminRole",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "newAdminRole",
+              "type": "bytes32"
+            }
+          ],
+          "name": "RoleAdminChanged",
+          "type": "event"
+        },
+        "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            }
+          ],
+          "name": "RoleGranted",
+          "type": "event"
+        },
+        "0xf6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "bytes32",
+              "name": "role",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            }
+          ],
+          "name": "RoleRevoked",
+          "type": "event"
+        },
+        "0x387a6db0f68b316b57f3260da99c5aeffd87c39beb8948ce8303d61e541869a0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "carrierAdded",
+          "type": "event"
+        },
+        "0x78f1966a437b216b79694eba11d816b9d0e19de3271c193a3644850e9d6b3a84": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "carrierRemoved",
+          "type": "event"
+        },
+        "0x98980d7f599134323351c537f72e6e91717e3b79333a908281c16eba585a4557": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "laboratoryAdded",
+          "type": "event"
+        },
+        "0x97777ba2e5fcee6d754cfc5ef55c7906082b5f8304c0612b37538176814d8b62": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "laboratoryRemoved",
+          "type": "event"
+        },
+        "0x73fa9435d865b08821c2994a077c585ed7bf83a8e04f9de2663a5e404030796c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "vaccineCenterAdded",
+          "type": "event"
+        },
+        "0x0301d300f7ffcdac7be324e8f0935a454bd86464697c0c9eea742da993108674": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "vaccineCenterRemoved",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0x0Faa98954f81d83646c04cC193c05C24f840bfdE",
-      "transactionHash": "0x180ce4c5d631a7891fb831c6146d27112ae2d8d575c3c3c2e08784066eeecece"
+      "address": "0xFA3cB621ca7f877E9f8eaB411cA18880f2520E10",
+      "transactionHash": "0x075044c62b8565a06a4992d65fdbdadcda82ac74458ae364c8175ec03e807021"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-04-21T23:36:17.191Z",
+  "updatedAt": "2022-04-22T00:28:02.135Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

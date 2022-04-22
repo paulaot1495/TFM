@@ -8,7 +8,7 @@ import AddressToRole from "./AddressToRole";
 import { connect } from "react-redux";
 
 function AdminContainer(props) {
-    const {rol, stackId, accountValue, drizzle, rolId, drizzleState, setStackId} = props;
+    const {rol, stackId, accountValue, drizzle, rolId, drizzleState, setStackId, transactionStack, transactions} = props;
     return (
       <div>
         <GenericContainer 
@@ -19,6 +19,8 @@ function AdminContainer(props) {
         drizzleState = {drizzleState}
         rol = {rol}
         rolId = {rolId}
+        transactions = {transactions}
+        transactionStack = {transactionStack}
         />
         <AddressToRole
             drizzle={drizzle}

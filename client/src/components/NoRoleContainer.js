@@ -8,7 +8,7 @@ import RegisterComponent from "./RegisterComponent";
 
 function NoRoleContainer(props) {
   const [data, setData] = useState("");
-  const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, vaccineId} = props;
+  const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, vaccineId, transactionStack, transactions} = props;
 
   useEffect(() => {
   }, []);
@@ -29,6 +29,8 @@ function NoRoleContainer(props) {
             rol = {rol}
             vaccineId = {vaccineId}
             rolId={rolId}
+            transactions = {transactions}
+            transactionStack = {transactionStack}
             />
             <InfoComponent/>
             <RegisterComponent

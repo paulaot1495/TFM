@@ -1,9 +1,13 @@
 
 # dependencies
-/client/node_modules
-
+/node_modules
 /build
+/package-lock.json
 
+# client
+/client/node_modules
+/client/package-lock.json
+/client/contracts
 
 
 

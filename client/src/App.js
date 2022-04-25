@@ -6,13 +6,7 @@ import InfoComponent from "./components/InfoComponent";
 import NoRoleContainer from "./components/NoRoleContainer";
 import CarrierContainer from "./components/CarrierContainer";
 import CVContainer from "./components/CVContainer";
-
-import { newContextComponents } from "@drizzle/react-components";
 import './App.css';
-import VaccineNetwork from "./contracts/VaccineNetwork.json";
-
-
-
 import { connect } from "react-redux";
 
 function App({ account, web3, transactionStack, transactions, contract}) {

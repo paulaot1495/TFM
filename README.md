@@ -34,12 +34,11 @@ npm install
 ```
 npm install
 ```
-
+contracts/ will store all your Solidity (.sol files). This is where you will add any smart contracts, libraries, or interfaces that you need at compile time:
 ```
 truffle compile
 ```
-
-and then:
+Migrations are JavaScript files that help you deploy contracts to the Ethereum network. These files are responsible for staging your deployment tasks, and they're written under the assumption that your deployment needs will change over time. This will run all migrations located within your project's migrations directory:
 
 ```
 truffle migrate

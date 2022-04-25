@@ -2,6 +2,8 @@
 
 Este proyecto forma parte del Trabajo de Fin de Máster de Ciberseguridad y Privacidad de la UOC. Consiste en una aplicación basada en Ethereum para asegurar la cadena de frío de un lote de vacunas.
 
+![App image](appPicture.png)
+
 ## Getting Started with Vaccine Network
 
 You will need to install Node.js and Truffle. 

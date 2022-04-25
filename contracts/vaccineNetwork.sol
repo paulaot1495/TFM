@@ -96,7 +96,11 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
     */    
     function removeCarrier(address account) public {
 <<<<<<< HEAD
+<<<<<<< HEAD
         require(places[vaccine_id] != Place.Laboratory, "El lote esta en transito.");
+=======
+        require(states[vaccine_id] != State.Transit, "El lote esta en transito.");
+>>>>>>> 256f247 (feat(*): .sol contracts)
 =======
         require(states[vaccine_id] != State.Transit, "El lote esta en transito.");
 >>>>>>> 256f247 (feat(*): .sol contracts)
@@ -240,7 +244,11 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
         return vaccine_id;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 256f247 (feat(*): .sol contracts)
 =======
 }
 >>>>>>> 256f247 (feat(*): .sol contracts)

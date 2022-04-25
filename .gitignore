@@ -7,7 +7,7 @@
 # client
 /client/node_modules
 /client/package-lock.json
-/client/contracts
+/client/src/contracts
 
 
 

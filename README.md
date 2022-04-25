@@ -34,7 +34,7 @@ npm install
 ```
 npm install
 ```
-contracts/ will store all your Solidity (.sol files). This is where you will add any smart contracts, libraries, or interfaces that you need at compile time:
+client/contracts/ will store all your Solidity (.sol files). This is where you will add any smart contracts, libraries, or interfaces that you need at compile time:
 ```
 truffle compile
 ```

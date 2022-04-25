@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import GenericContainer from "./GenericContainer";
-import InfoComponent from "./InfoComponent";
-import StatusComponent from "./StatusComponent";
+import StatusComponent from "./statusComponent";
 
 
 

@@ -6,7 +6,7 @@ Este proyecto forma parte del Trabajo de Fin de Máster de Ciberseguridad y Priv
 
 ## Getting Started with Vaccine Network
 
-You will need to install Node.js and Truffle. 
+You will need to install Node.js, Truffle and Metamask for Chrome Browser. 
 
 ## To get this box ##
 

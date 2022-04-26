@@ -45,9 +45,9 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
     //Asociación de cuentas de transportista a sus puntos por viajes realizados correctaente
     mapping(address => CarrierPoints) public carriers;
 
-    //Asignar a la cuenta ejecutora el rol de Laboratorio tras pagar 1e15 Wei.
+    //Asignar a la cuenta ejecutora el rol de Laboratorio tras pagar 1e17 Wei.
     function addLaboratory() public payable returns (bool){
-        require(msg.value == 1e15, "No has pagado la cantidad acordada.");
+        require(msg.value == 1e17, "No has pagado la cantidad acordada.");
         require(!laboratory, "Ya hay un laboratorio creado.");
         require(roles[msg.sender] == Rol.None, "Esta cuenta ya esta asignada a un rol");
         require(states[vaccine_id] == State.None, "Ha habido un error");
@@ -166,7 +166,7 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
 
         states[vaccine_id] = State.Ok;
 
-        (bool success, ) =  users[Rol.Carrier].call{value: 3e14}("");
+        (bool success, ) =  users[Rol.Carrier].call{value: 3e16}("");
         require(success, "Transfer failed.");  
 
         carriers[users[Rol.Carrier]].points++;

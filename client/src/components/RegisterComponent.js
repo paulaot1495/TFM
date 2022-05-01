@@ -10,7 +10,7 @@ function RegisterComponent(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const  txId= drizzle.contracts.VaccineNetwork.methods.addLaboratory.cacheSend({ from: accountValue, gas: 3000000, value: 100000000000000000});
+    const  txId= drizzle.contracts.VaccineNetwork.methods.batchRegister.cacheSend({ from: accountValue, gas: 3000000, value: 100000000000000000});
     setStackId(txId);
   };
 

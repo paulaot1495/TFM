@@ -46,7 +46,7 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
     mapping(address => CarrierPoints) public carriers;
 
     //Asignar a la cuenta ejecutora el rol de Laboratorio tras pagar 1e17 Wei.
-    function addLaboratory() public payable returns (bool){
+    function batchRegister() public payable returns (bool){
         require(msg.value == 1e17, "No has pagado la cantidad acordada.");
         require(!laboratory, "Ya hay un laboratorio creado.");
         require(roles[msg.sender] == Rol.None, "Esta cuenta ya esta asignada a un rol");

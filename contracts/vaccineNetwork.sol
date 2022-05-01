@@ -19,6 +19,9 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole, Devic
     //Id de lote de vacunas
     uint public vaccine_id = 0;
 
+    //Max temperature
+    uint public max_temp = 0;
+
     //Posibles valores del rol del usuario 
     enum Rol {None, Laboratory, Carrier, VaccineCenter, Device}
 
@@ -48,13 +51,14 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole, Devic
     mapping(address => CarrierPoints) public carriers;
 
     //Asignar a la cuenta ejecutora el rol de Laboratorio tras pagar 1e17 Wei.
-    function batchRegister() public payable returns (bool){
+    function batchRegister(uint maxTemp) public payable returns (bool){
         require(msg.value == 1e17, "No has pagado la cantidad acordada.");
         require(!laboratory, "Ya hay un laboratorio creado.");
         require(roles[msg.sender] == Rol.None, "Esta cuenta ya esta asignada a un rol");
         require(states[vaccine_id] == State.None, "Ha habido un error");
         require(places[vaccine_id] == Place.None, "Ha habido un error");
 
+        max_temp = maxTemp;
         laboratory = true;
         _addLaboratory(msg.sender);
 

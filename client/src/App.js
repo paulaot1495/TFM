@@ -6,6 +6,8 @@ import InfoComponent from "./components/InfoComponent";
 import NoRoleContainer from "./components/NoRoleContainer";
 import CarrierContainer from "./components/CarrierContainer";
 import CVContainer from "./components/CVContainer";
+import DeviceContainer from "./components/DeviceContainer";
+
 import './App.css';
 import { connect } from "react-redux";
 

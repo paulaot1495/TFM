@@ -4,21 +4,23 @@ pragma solidity >=0.6.0 <0.9.0;
 import './roles/LaboratoryRole.sol';
 import './roles/CarrierRole.sol';
 import './roles/VaccineCenterRole.sol';
+import './roles/DeviceRole.sol';
 /**
  * @title Vaccine Network Model
  */
-contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
+contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole, DeviceRole {
 
     //Flags para saber si un rol esta creado
     bool laboratory = false;
     bool center = false;
     bool carrier = false;
+    bool device = false;
 
     //Id de lote de vacunas
     uint public vaccine_id = 0;
 
     //Posibles valores del rol del usuario 
-    enum Rol {None, Laboratory, Carrier, VaccineCenter}
+    enum Rol {None, Laboratory, Carrier, VaccineCenter, Device}
 
     //Posibles estados del lote de vacunas
     enum State {None, Transit, Ok, Ko}
@@ -131,6 +133,34 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole {
         users[Rol.VaccineCenter] = 0x0000000000000000000000000000000000000000;
 
         _removeVaccineCenter(account);
+    }
+
+    //Asigna el rol de device a la cuenta pasada como parametro. Solo puede hacerlo el rol de laboratorio
+    function addDevice(address account) public {
+        require(roles[msg.sender] == Rol.Laboratory, "No tienes permisos para realizar esta accion.");
+        require(!device, "Ya hay un transportista creado, eliminalo antes");
+        require(roles[account] == Rol.None, "Esta cuenta ya esta asignada a un rol");
+
+        device = true;
+
+        users[Rol.Device] = account;
+        roles[account] = Rol.Device;
+
+        _addDevice(account);
+    }
+
+        /*
+    * Elimina el rol de dispositivo de la cuenta pasada como parametro. 
+    * Solo puede hacerlo si el lote sigue en el laboratorio. o el producto ha completado la cadena.
+    */
+    function removeDevice(address account) public {
+        require(users[Rol.Device] == account, "Esta cuenta no tiene rol de centro");
+        device = false;
+
+        roles[account] = Rol.None;
+        users[Rol.Device] = 0x0000000000000000000000000000000000000000;
+
+        _removeDevice(account);
     }
 
     /*

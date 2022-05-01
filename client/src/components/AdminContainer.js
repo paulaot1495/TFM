@@ -1,7 +1,7 @@
 import ManageRole from "./manageRole";
 import GenericContainer from "./GenericContainer";
 import AddressToRole from "./AddressToRole";
-
+import CarrierPoints from "./CarrierPoints";
 
 
 
@@ -32,6 +32,12 @@ function AdminContainer(props) {
             buttonLabel='Responsable CV'
             rol='3'
         ></AddressToRole>
+        <CarrierPoints
+            drizzle={drizzle}
+            title="Consulta los puntos del transportista antes de añadirle a la cadena"
+            buttonLabel='Consultar'
+            rol='3'
+        ></CarrierPoints>
         <ManageRole 
           stackId={stackId}
           buttonLabel='Añadir'

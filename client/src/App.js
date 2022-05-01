@@ -45,7 +45,8 @@ function App({ account, web3, transactionStack, transactions, contract}) {
         0: 'No tienes Rol asignado',
         1: 'Laboratorio', 
         2: 'Transportista',
-        3: 'Centro de vacunación'
+        3: 'Centro de vacunación',
+        4: 'Dispositivo'
       }
       rol = contract.getAccountRole[rolKey].value
       rol_name = roles[rol];
@@ -104,6 +105,23 @@ function App({ account, web3, transactionStack, transactions, contract}) {
     return(
       <div>
       <CVContainer 
+      stackId = {stackId}
+      setStackId={setStackId}
+      accountValue={accountValue}
+      drizzle = {drizzle}
+      drizzleState = {drizzleState}
+      rol = {rol_name}
+      rolId = {rol}
+      vaccineId = {vaccineId}
+      transactions = {transactions}
+      transactionStack = {transactionStack}
+      />
+      </div>
+    )
+  } else if (rol_id === '4') {
+    return(
+      <div>
+      <DeviceContainer 
       stackId = {stackId}
       setStackId={setStackId}
       accountValue={accountValue}

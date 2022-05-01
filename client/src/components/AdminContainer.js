@@ -78,6 +78,26 @@ function AdminContainer(props) {
           owner={drizzle.contracts.VaccineNetwork.options.from}
           drizzleState={drizzleState}>
         </ManageRole>
+        <ManageRole
+          stackId={stackId}
+          buttonLabel='Asociar'
+          setStackId={setStackId}
+          account={accountValue}
+          method={drizzle.contracts.VaccineNetwork.methods.addDevice}
+          title="Asocia un dispositivo a este lote"
+          owner={drizzle.contracts.VaccineNetwork.options.from}
+          drizzleState={drizzleState}>
+        </ManageRole>
+        <ManageRole
+          stackId={stackId}
+          buttonLabel='Eliminar'
+          setStackId={setStackId}
+          account={accountValue}
+          method={drizzle.contracts.VaccineNetwork.methods.removeDevice}
+          title="Elimina el dispositivo asociado a este lote"
+          owner={drizzle.contracts.VaccineNetwork.options.from}
+          drizzleState={drizzleState}>
+        </ManageRole>
       </div>
     );
 }

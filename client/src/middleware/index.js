@@ -1,4 +1,4 @@
-import { generateStore, EventActions } from '@drizzle/store'
+import { generateStore } from '@drizzle/store'
 import drizzleOptions from '../drizzle/drizzleOptions'
 import CarrierRole from "../contracts/CarrierRole.json";
 

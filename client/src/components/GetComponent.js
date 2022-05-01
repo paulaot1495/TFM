@@ -12,7 +12,6 @@ function GetComponent(props) {
     }, []);
 
     const onSubmitState = (event) => {
-        debugger;
         event.preventDefault();
         const x = drizzle.contracts.VaccineNetwork.methods.getVacccineState.cacheCall(idState);
         setStateValue(x);

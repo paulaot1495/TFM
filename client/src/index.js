@@ -4,7 +4,7 @@ import App from "./App";
 import { DrizzleProvider } from "./drizzle/drizzleContext";
 import { Provider as ReduxProvider } from "react-redux";
 import drizzleOptions from "./drizzle/drizzleOptions";
-import { Drizzle, generateStore } from "@drizzle/store";
+import { Drizzle } from "@drizzle/store";
 import LoadingContainer from "./components/LoadingContainer";
 
 

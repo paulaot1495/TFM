@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 function StatusComponent(props) {
-  const [data, setData] = useState("");
   const {account, method, setStackId, buttonLabel, classType} = props;
 
   useEffect(() => {

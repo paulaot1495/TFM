@@ -188,6 +188,17 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole, Devic
     }
 
     /*
+    * El dispositivo inserta temperatura y se compara con la máxima, si la ha sobrepasado cambia el estado del lote a KO.
+    */
+    function compareTemperatures (uint temp) public {
+        require(roles[msg.sender] == Rol.Device, "No tienes permisos para realizar esta accion.");
+
+        if(temp >= max_temp) {
+            setVaccineKo();
+        }
+    }
+
+    /*
     * El responsable del centro de vacunación actualiza el estado del lote de vacunas a ok.
     * Se compensa de forma remunerada al transportista por sus servicios y se le puntua positivamente.
     * Se elimina la red asociada al lote de vacunas ya confirmado.
@@ -217,7 +228,7 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole, Devic
     * Se elimina la red asociada al lote de vacunas.
     */
     function setVaccineKo () public {
-        require(roles[msg.sender] == Rol.Carrier || roles[msg.sender] == Rol.VaccineCenter, "No tienes permisos para realizar esta accion.");
+        require(roles[msg.sender] == Rol.Carrier || roles[msg.sender] == Rol.VaccineCenter || roles[msg.sender] == Rol.Device, "No tienes permisos para realizar esta accion.");
         require(states[vaccine_id] == State.Transit, "Ha habido un error");
         require(places[vaccine_id] != Place.Laboratory, "Ha habido un error");
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import GenericContainer from "./GenericContainer";
 import InfoComponent from "./InfoComponent";
@@ -7,16 +7,10 @@ import RegisterComponent from "./RegisterComponent";
 
 
 function NoRoleContainer(props) {
-  const [data, setData] = useState("");
   const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, vaccineId, transactionStack, transactions} = props;
 
   useEffect(() => {
   }, []);
-
-
-  const onChange = (event) => {
-    setData(event.target.value);
-  };
 
   return (
     <div>

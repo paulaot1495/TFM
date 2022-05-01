@@ -5,7 +5,6 @@ function CarrierPoints(props) {
   const [data, setData] = useState("");
   const [points, setPoints] = useState("");
   const {drizzle, buttonLabel, title, contract} = props;
-  let addressValue;
   useEffect(() => {
   }, []);
 
@@ -18,7 +17,7 @@ function CarrierPoints(props) {
   const getValuePoints = () => {
     if(points && contract && contract.getCarrierPoints && contract.getCarrierPoints[points]) {
         if(contract.getCarrierPoints[points].value[0] === '0' && contract.getCarrierPoints[points].value[1] === '0'){
-            return 'Este usuario no ha sido registrado aún como transportista por el sistema.'
+            return 'Este usuario no ha sido registrado como transportista por el sistema.'
         } else {
             return  `Número de viajes ⮕ ${contract.getCarrierPoints[points].value[1]} \n Puntuación ⮕ ${contract.getCarrierPoints[points].value[0]} \n`
         }

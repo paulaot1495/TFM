@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import GenericContainer from "./GenericContainer";
-import StatusComponent from "./statusComponent";
+import SetComponent from "./SetComponent";
 
 
 
@@ -29,6 +29,13 @@ function DeviceContainer(props) {
             rolId = {rolId}
             transactions = {transactions}
             transactionStack = {transactionStack}
+            /> 
+    <SetComponent 
+            stackId = {stackId}
+            setStackId={setStackId}
+            account={accountValue}
+            drizzle = {drizzle}
+            drizzleState = {drizzleState}
             /> 
     </div>
   );

@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 function RegisterComponent(props) {
-  const [key, setKey] = useState("");
   const [data, setData] = useState("");
   const {drizzle, accountValue, setStackId} = props;
-  const title = 'Indica la temperatura máxima en grados sa la que puede estar sometida el lote'
-  let addressValue;
+  const title = 'Indica la temperatura máxima en grados a la que puede estar sometida el lote'
   useEffect(() => {
   }, []);
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import GenericContainer from "./GenericContainer";
 import StatusComponent from "./statusComponent";
@@ -6,16 +6,10 @@ import StatusComponent from "./statusComponent";
 
 
 function CVContainer(props) {
-  const [data, setData] = useState("");
   const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, transactionStack, transactions} = props;
 
   useEffect(() => {
   }, []);
-
-
-  const onChange = (event) => {
-    setData(event.target.value);
-  };
 
   return (
     <div>

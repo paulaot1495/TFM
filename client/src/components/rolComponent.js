@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import { connect } from "react-redux";
 
@@ -8,7 +8,7 @@ function RolComponent(props) {
   useEffect(() => {
   }, []);
 
-  if ( rol == 'No tienes Rol asignado') {
+  if ( rol === 'No tienes Rol asignado') {
     return (
       <div id="rol">
           <h2>No tienes ningún rol en la red activa.</h2>

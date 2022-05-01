@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import GetComponent from "./GetComponent";
 import MetamaskComponent from "./metamaskComponent";
@@ -7,16 +7,10 @@ import VaccineIdComponent from "./VaccineIdComponent"
 import TransactionManagement from "./TransactionManagement"
 
 function GenericContainer(props) {
-  const [data, setData] = useState("");
   const {accountValue, rol, transactionStack, transactions, stackId, drizzle, drizzleState, rolId, vaccineId} = props;
 
   useEffect(() => {
   }, []);
-
-
-  const onChange = (event) => {
-    setData(event.target.value);
-  };
 
   return (
     <div>

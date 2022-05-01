@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 function AddressToRole(props) {
   const [accountKey, setAccount] = useState("");
   const {drizzle, buttonLabel, rol, contract} = props;
-  let addressValue;
   useEffect(() => {
   }, []);
 

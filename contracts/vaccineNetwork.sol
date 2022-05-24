@@ -53,7 +53,7 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole, Devic
     //Asignar a la cuenta ejecutora el rol de Laboratorio tras pagar 1e17 Wei.
     function batchRegister(uint maxTemp) public payable returns (bool){
         require(msg.value == 1e17, "No has pagado la cantidad acordada.");
-        require(!laboratory, "Ya hay un laboratorio creado.");
+        require(!laboratory, "Actualmente hay un lote en transito.");
         require(roles[msg.sender] == Rol.None, "Esta cuenta ya esta asignada a un rol");
         require(states[vaccine_id] == State.None, "Ha habido un error");
         require(places[vaccine_id] == Place.None, "Ha habido un error");

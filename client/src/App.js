@@ -100,6 +100,8 @@ function App({ account, web3, transactionStack, transactions, contract}) {
       rol = {rol_name}
       rolId = {rol}
       vaccineId = {vaccineId}
+      transactions = {transactions}
+      transactionStack = {transactionStack}/>
       />
       </div>
     )

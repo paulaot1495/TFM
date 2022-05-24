@@ -7,7 +7,7 @@ import SetComponent from "./SetComponent";
 
 function DeviceContainer(props) {
   const [data, setData] = useState("");
-  const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, transactionStack, transactions} = props;
+  const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, transactionStack, transactions, vaccineId} = props;
 
   useEffect(() => {
   }, []);
@@ -29,6 +29,7 @@ function DeviceContainer(props) {
             rolId = {rolId}
             transactions = {transactions}
             transactionStack = {transactionStack}
+            vaccineId = {vaccineId}
             /> 
     <SetComponent 
             stackId = {stackId}

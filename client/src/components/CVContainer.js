@@ -6,7 +6,7 @@ import StatusComponent from "./statusComponent";
 
 
 function CVContainer(props) {
-  const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, transactionStack, transactions} = props;
+  const {accountValue, stackId, rol, rolId, drizzle, drizzleState, setStackId, transactionStack, transactions, vaccineId} = props;
 
   useEffect(() => {
   }, []);
@@ -23,6 +23,7 @@ function CVContainer(props) {
             rolId = {rolId}
             transactions = {transactions}
             transactionStack = {transactionStack}
+            vaccineId = {vaccineId}
             />
             <StatusComponent
             stackId = {stackId}

@@ -8,7 +8,7 @@ import CarrierPoints from "./CarrierPoints";
 import { connect } from "react-redux";
 
 function AdminContainer(props) {
-    const {rol, stackId, accountValue, drizzle, rolId, drizzleState, setStackId, transactionStack, transactions} = props;
+    const {rol, stackId, accountValue, drizzle, rolId, drizzleState, setStackId, transactionStack, transactions, vaccineId} = props;
     return (
       <div>
         <GenericContainer 
@@ -21,6 +21,7 @@ function AdminContainer(props) {
         rolId = {rolId}
         transactions = {transactions}
         transactionStack = {transactionStack}
+        vaccineId = {vaccineId}
         />
         <AddressToRole
             drizzle={drizzle}

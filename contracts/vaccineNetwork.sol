@@ -237,16 +237,16 @@ contract VaccineNetwork is LaboratoryRole, CarrierRole, VaccineCenterRole, Devic
         (bool success, ) =  users[Rol.Carrier].call{value: 3e14}("");
         require(success, "Transfer failed."); 
 
-        removeLaboratory(users[Rol.Laboratory]);
-        removeCarrier(users[Rol.Carrier]);
-        removeVaccineCenter(users[Rol.VaccineCenter]);
-
         if (places[vaccine_id] == Place.Carrier) {
             carriers[users[Rol.Carrier]].travels++;
         } else {
             carriers[users[Rol.Carrier]].points++;
             carriers[users[Rol.Carrier]].travels++;
         }
+
+        removeLaboratory(users[Rol.Laboratory]);
+        removeCarrier(users[Rol.Carrier]);
+        removeVaccineCenter(users[Rol.VaccineCenter]);
 
         vaccine_id++;
     }

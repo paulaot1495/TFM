@@ -1,4 +1,4 @@
-import ManageRole from "./manageRole";
+import MethodComponent from "./MethodComponent";
 import GenericContainer from "./GenericContainer";
 import AddressToRole from "./AddressToRole";
 import CarrierPoints from "./CarrierPoints";
@@ -39,7 +39,7 @@ function AdminContainer(props) {
             buttonLabel='Consultar'
             rol='3'
         ></CarrierPoints>
-        <ManageRole 
+        <MethodComponent 
           stackId={stackId}
           buttonLabel='Añadir'
           setStackId={setStackId}
@@ -48,8 +48,8 @@ function AdminContainer(props) {
           title="Añade un transportista"
           owner={drizzle.contracts.VaccineNetwork.options.from}
           drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
+        </MethodComponent>
+        <MethodComponent
           stackId={stackId}
           buttonLabel='Eliminar'
           setStackId={setStackId}
@@ -58,8 +58,8 @@ function AdminContainer(props) {
           title="Elimina al transportista"
           owner={drizzle.contracts.VaccineNetwork.options.from}
           drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
+        </MethodComponent>
+        <MethodComponent
           stackId={stackId}
           buttonLabel='Añadir'
           setStackId={setStackId}
@@ -68,8 +68,8 @@ function AdminContainer(props) {
           title="Añade un responsable del Centro de Salud"
           owner={drizzle.contracts.VaccineNetwork.options.from}
           drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
+        </MethodComponent>
+        <MethodComponent
           stackId={stackId}
           buttonLabel='Eliminar'
           setStackId={setStackId}
@@ -78,8 +78,8 @@ function AdminContainer(props) {
           title="Elimina al responsable del Centro de Salud"
           owner={drizzle.contracts.VaccineNetwork.options.from}
           drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
+        </MethodComponent>
+        <MethodComponent
           stackId={stackId}
           buttonLabel='Asociar'
           setStackId={setStackId}
@@ -88,8 +88,8 @@ function AdminContainer(props) {
           title="Asocia un dispositivo a este lote"
           owner={drizzle.contracts.VaccineNetwork.options.from}
           drizzleState={drizzleState}>
-        </ManageRole>
-        <ManageRole
+        </MethodComponent>
+        <MethodComponent
           stackId={stackId}
           buttonLabel='Eliminar'
           setStackId={setStackId}
@@ -98,7 +98,7 @@ function AdminContainer(props) {
           title="Elimina el dispositivo asociado a este lote"
           owner={drizzle.contracts.VaccineNetwork.options.from}
           drizzleState={drizzleState}>
-        </ManageRole>
+        </MethodComponent>
       </div>
     );
 }

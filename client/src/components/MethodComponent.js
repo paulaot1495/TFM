@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
-function ManageRole(props) {
+function MethodComponent(props) {
   const [data, setData] = useState("");
   const {account, method, title, setStackId, buttonLabel} = props;
 
@@ -33,4 +33,4 @@ function ManageRole(props) {
 }
 
 
-export default connect()(ManageRole);
+export default connect()(MethodComponent);
